@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admission Form</title>
+    <link rel="stylesheet" href="css/admission_style.css">
+</head>
+<body>
+
+<section class="form-section">
+    <div class="form-container">
+        <h1 class="title">Bright Future Coaching</h1>
+        <p class="subtitle">Admissions Open 2026 - Enroll Now</p>
+
+        <form name="admission" method="POST" 
+              data-netlify="true" 
+              action="/success.html"
+              onsubmit="generateID()">
+
+            <!-- Required Hidden Input -->
+            <input type="hidden" name="form-name" value="admission">
+
+            <div class="input-group">
+                <input type="text" name="name" required>
+                <label>Full Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" name="email" required>
+                <label>Email Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="tel" name="phone" required>
+                <label>Phone Number</label>
+            </div>
+
+            <div class="input-group">
+                <select name="course" required>
+                    <option value="">Select Course</option>
+                    <option>Class 10</option>
+                    <option>Class 12</option>
+                    <option>IIT-JEE</option>
+                    <option>NEET</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <textarea name="message"></textarea>
+                <label>Message (Optional)</label>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit Application
+            </button>
+
+        </form>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

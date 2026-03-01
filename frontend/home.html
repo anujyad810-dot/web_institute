@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jadon accademics</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/another.css">
+
+</head>
+
+
+<body>
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="mits.png" alt="">
+            <a href="#"><span></span></a>
+        </div>
+
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#admission">Admission Form</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#material">Material</a></li>
+        </ul>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search..." id="search-input">
+            <button type="submit" id="search-btn">🔍</button>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="overlay"></div>
+
+        <div class="content">
+            <h1 class="animated-text">JADON ACCADEMIC INSTITUTE</h1>
+
+            <p class="tagline">
+                Empowering Students • Building Futures • Creating Success
+            </p>
+
+            <p class="sub-tagline">
+                Best Coaching for lower classes,10, 12, IIT-JEE & Competitive Exams
+            </p>
+
+            <div class="buttons">
+                <a href="admission.html" class="btn primary">Get Admission</a>
+                <a href="study-material.html" class="btn secondary">Free Study Material</a>
+            </div>
+        </div>
+
+    </section>
+    <section class="success-section">
+        <div class="success-container">
+            <h2 class="success-title">Our Success</h2>
+            <p class="success-subtitle">
+                Delivering consistent results through quality teaching, discipline, and dedication.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 class="counter" data-target="1000">0</h3>
+                    <p>Students Enrolled</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="counter" data-target="85">0</h3>
+                    <p>Selection Rate (%)</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="counter" data-target="40">0</h3>
+                    <p>Courses & Test Series</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="counter" data-target="18">0</h3>
+                    <p>Years of Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-platform">
+        <h2>What is <span class="highlight">JACI</span>?</h2>
+        <p class="description">
+            Jaci Jadon Academics & Coaching Institute is more than just a name — it is an emotion woven into the lives
+            of thousands of students. Standing strong for 15 years, this trusted institute has consistently shaped
+            futures, produced remarkable results, and built a legacy that students proudly carry with them long after
+            they graduate.
+        </p>
+
+        <div class="card-container">
+
+            <!-- For Instructors -->
+            <div class="card instructor-card">
+                <!-- Image will be set by you using CSS background-image -->
+                <div class="card-content">
+
+                    <h3>FOR INSTRUCTORS</h3>
+                    <button class="card-btn">Start a class today</button>
+                </div>
+            </div>
+
+            <!-- For Students -->
+            <div class="card student-card">
+                <!-- Image will be set by you using CSS background-image -->
+                <div class="card-content">
+                    <h3>FOR STUDENTS</h3>
+                    <button class="card-btn primary">Enter access code</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- <script src="js/script.js"></script> -->
+
+
+    <script>
+        const text = "JADON ACADEMIC INSTITUTE";
+        let index = 0;
+        let isDeleting = false;
+        const speed = 120;
+        const element = document.querySelector(".animated-text");
+
+        function typeEffect() {
+            if (!isDeleting) {
+                element.textContent = text.substring(0, index++);
+                if (index > text.length) {
+                    setTimeout(() => (isDeleting = true), 1200);
+                }
+            } else {
+                element.textContent = text.substring(0, index--);
+                if (index === 0) {
+                    isDeleting = false;
+                }
+            }
+            setTimeout(typeEffect, speed);
+        }
+
+        typeEffect();
+
+        // Toggle Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Search Functionality Example
+        const searchBtn = document.getElementById('search-btn');
+        const searchInput = document.getElementById('search-input');
+
+        searchBtn.addEventListener('click', () => {
+            const query = searchInput.value;
+            if (query) {
+                alert('Searching for: ' + query);
+                // Integrate your actual search logic here
+            }
+        });
+        const counters = document.querySelectorAll('.counter');
+
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const speed = 200;
+
+            const updateCount = () => {
+                const current = +counter.innerText;
+                const increment = Math.ceil(target / speed);
+
+                if (current < target) {
+                    counter.innerText = current + increment;
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target + (target > 100 ? "+" : "");
+                }
+            };
+
+            updateCount();
+        });
+
+    </script>
+</body>
+
+</html>
